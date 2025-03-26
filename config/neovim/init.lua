@@ -1,0 +1,2 @@
+-- Lazy --
+require("config.lazy")
