@@ -9,7 +9,7 @@ return {
         "williamboman/mason-lspconfig.nvim",
         config = function()
             require("mason-lspconfig").setup({
-                ensure_installed = { "clangd", "lua_ls", "elixirls" }
+                ensure_installed = {"clangd", "lua_ls"}
             })
         end
     },
@@ -18,9 +18,6 @@ return {
         config = function()
             require'lspconfig'.clangd.setup{}
             require'lspconfig'.lua_ls.setup{}
-            require'lspconfig'.elixirls.setup{
-                cmd = {"/home/pep/Documents/04_Arquivos-gerais/elixirls/language_server.sh"}
-            }
         end
     }
 }

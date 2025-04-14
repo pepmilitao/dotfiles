@@ -18,5 +18,8 @@ ln -sf $HOME/Config-files/config/picom/* $HOME/.config/picom/
 ## Polybar (Topbar)
 ln -sf $HOME/Config-files/config/polybar/* $HOME/.config/polybar/
 
+## ZSH (Shell)
+ln -sf $HOME/Config-files/config/zsh/.zshrc $HOME/
+
 ## Rofi (Runner)
 ln -sf $HOME/Config-files/config/rofi/* $HOME/.config/rofi/
