@@ -15,7 +15,7 @@ read boot
 echo "Will you use other swap partition? [N/y] "
 read maybeSwap
 
-if [[ maybeSwap ]]; then
+if [[ $maybeSwap == "Y" || $maybeSwap == "y" ]]; then
     echo "Enter the swap partition (/dev/sda, for example): "
     read swap
     echo "Formating swap partition"
