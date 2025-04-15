@@ -4,23 +4,23 @@ echo "Welcome to my ArchInstaller, might not be the best but is good enough"
 
 # Partitions
 
-echo "Enter the root partition: "
+echo "Enter the root partition (/dev/sda, for example): "
 read root
 echo "Enter the root's filesystem (ext4, btrfs, zfs, xfs): "
 read root_fs
 
-echo "Enter the boot partition: "
+echo "Enter the boot partition (/dev/sda, for example): "
 read boot
 
 echo "Will you use other swap partition? [N/y] "
 read maybeSwap
 
 if [[ maybeSwap ]]; then
-    echo "Enter the swap partition: "
+    echo "Enter the swap partition (/dev/sda, for example): "
     read swap
     echo "Formating swap partition"
-    mkswap /dev/$swap
-    swapon /dev/$swap
+    mkswap $swap
+    swapon $swap
 fi
 
 # TODO: Make it work with creating other partitions
@@ -28,14 +28,14 @@ fi
 # Formating partitions
 
 echo "Formating root partition"
-mkfs.$root_fs /dev/$root
+mkfs.$root_fs $root
 
 echo "Formating boot partition"
-mkfs.fat -F 32 /dev/$boot
+mkfs.fat -F 32 $boot
 
 echo "Mounting the partitions"
-mount /dev/$root /mnt
-mount --mkdir /dev/$boot /mnt/boot
+mount $root /mnt
+mount --mkdir $boot /mnt/boot
 
 # Generating mirrorlists
 
