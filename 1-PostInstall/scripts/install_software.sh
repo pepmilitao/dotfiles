@@ -7,11 +7,11 @@ pacman -S -y --needed git firefox i3 neovim kitty picom polybar rofi zsh feh ttf
 echo "GTK_THEME=Adwaita:dark" >> /etc/environment
 
 # Setting greeter
-echo "[LightDM]
-[Seat:*]
-greeter-session=lightdm-slick-greeter
-[XDMCPServer]
-[VNCServer]" > /etc/lightdm/lightdm.conf
+echo "[LightDM]" > /etc/lightdm/lightdm.conf
+echo "[Seat:*]" >> /etc/lightdm/lightdm.conf
+echo "greeter-session=lightdm-slick-greeter" >> /etc/lightdm/lightdm.conf
+echo "[XDMCPServer]" >> /etc/lightdm/lightdm.conf
+echo "[VNCServer]" >> /etc/lightdm/lightdm.conf
 
 # Xorg files
 cp 00-keyboard.conf /etc/X11/xorg.conf.d
