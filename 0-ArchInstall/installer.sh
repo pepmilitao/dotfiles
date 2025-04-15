@@ -48,6 +48,7 @@ echo "Server = https://www.caco.ic.unicamp.br/archlinux/$repo/os/$arch" >> /etc/
 echo "Server = https://br.mirrors.cicku.me/archlinux/$repo/os/$arch" >> /etc/pacman.d/mirrorlist
 echo "Server = https://mirror.ufscar.br/archlinux/$repo/os/$arch" >> /etc/pacman.d/mirrorlist
 echo "Server = https://mirrors.ic.unicamp.br/archlinux/$repo/os/$arch" >> /etc/pacman.d/mirrorlist
+pacman -Syyu
 
 # TODO: chose which kernel to install
 
