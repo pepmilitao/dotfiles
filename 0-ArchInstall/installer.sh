@@ -39,16 +39,16 @@ mount --mkdir $boot /mnt/boot
 
 # Generating mirrorlists
 
-echo "Generating the mirrorlist for Brazil (aí sim)"
-echo "Server = https://geo.mirror.pkgbuild.com/$repo/os/$arch" > /etc/pacman.d/mirrorlist
-echo "Server = https://ftpmirror.infania.net/mirror/archlinux/$repo/os/$arch" >> /etc/pacman.d/mirrorlist
-echo "Server = https://mirror.rackspace.com/archlinux/$repo/os/$arch" >> /etc/pacman.d/mirrorlist
-echo "Server = https://archlinux.c3sl.ufpr.br/$repo/os/$arch" >> /etc/pacman.d/mirrorlist
-echo "Server = https://www.caco.ic.unicamp.br/archlinux/$repo/os/$arch" >> /etc/pacman.d/mirrorlist
-echo "Server = https://br.mirrors.cicku.me/archlinux/$repo/os/$arch" >> /etc/pacman.d/mirrorlist
-echo "Server = https://mirror.ufscar.br/archlinux/$repo/os/$arch" >> /etc/pacman.d/mirrorlist
-echo "Server = https://mirrors.ic.unicamp.br/archlinux/$repo/os/$arch" >> /etc/pacman.d/mirrorlist
-pacman -Syyu
+# echo "Generating the mirrorlist for Brazil (aí sim)"
+# echo "Server = https://geo.mirror.pkgbuild.com/$repo/os/$arch" > /etc/pacman.d/mirrorlist
+# echo "Server = https://ftpmirror.infania.net/mirror/archlinux/$repo/os/$arch" >> /etc/pacman.d/mirrorlist
+# echo "Server = https://mirror.rackspace.com/archlinux/$repo/os/$arch" >> /etc/pacman.d/mirrorlist
+# echo "Server = https://archlinux.c3sl.ufpr.br/$repo/os/$arch" >> /etc/pacman.d/mirrorlist
+# echo "Server = https://www.caco.ic.unicamp.br/archlinux/$repo/os/$arch" >> /etc/pacman.d/mirrorlist
+# echo "Server = https://br.mirrors.cicku.me/archlinux/$repo/os/$arch" >> /etc/pacman.d/mirrorlist
+# echo "Server = https://mirror.ufscar.br/archlinux/$repo/os/$arch" >> /etc/pacman.d/mirrorlist
+# echo "Server = https://mirrors.ic.unicamp.br/archlinux/$repo/os/$arch" >> /etc/pacman.d/mirrorlist
+# pacman -Syyu
 
 # TODO: chose which kernel to install
 
