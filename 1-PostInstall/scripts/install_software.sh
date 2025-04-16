@@ -1,21 +1,40 @@
 #!/bin/bash
 
 # Installing packages
-pacman -S -y --needed git firefox i3 neovim kitty picom polybar rofi zsh feh ttf-space-mono-nerd btop btop gnome-themes-extra lightdm-slick-greeter pavucontrol xreader yazi thunar
+pacman -S -y --needed curl git firefox i3 neovim kitty picom polybar rofi zsh feh ttf-space-mono-nerd btop btop gnome-themes-extra lightdm-slick-greeter pavucontrol xreader yazi thunar
 
 # Setting darkmode
 echo "GTK_THEME=Adwaita:dark" >> /etc/environment
 
 # Setting greeter
-echo "[LightDM]" > /etc/lightdm/lightdm.conf
-echo "[Seat:*]" >> /etc/lightdm/lightdm.conf
-echo "greeter-session=lightdm-slick-greeter" >> /etc/lightdm/lightdm.conf
-echo "[XDMCPServer]" >> /etc/lightdm/lightdm.conf
-echo "[VNCServer]" >> /etc/lightdm/lightdm.conf
+cat <<EOF > /etc/lightdm/lightdm.conf
+[LightDM]
+[Seat:*]
+greeter-session=lightdm-slick-greeter
+[XDMCPServer]
+[VNCServer]
+EOF
 
 # Xorg files
-cp 00-keyboard.conf /etc/X11/xorg.conf.d
-cp 01-touchpad.conf /etc/X11/xorg.conf.d
+cat <<EOF > /etc/X11/xorg.conf.d/00-keyboard.conf
+Section "InputClass"
+    Identifier "keyboard"
+    MatchIsKeyboard "yes"
+    Option "XkbLayout" "br"
+    Option "XkbVariant" "abnt2"
+EndSection
+EOF
+
+cat <<EOF > /etc/X11/xorg.conf.d/01-touchpad.conf
+Section "InputClass"
+    Identifier "Touchpad"
+    Driver "libinput"
+    MatchIsTouchpad "on"
+    Option "NaturalScrolling" "on"
+    Option "Tapping" "on"
+    Option "TappingButtonMap" "lrm"
+EndSection
+EOF
 
 # Oh My ZSH
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
