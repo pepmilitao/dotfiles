@@ -1,4 +1,3 @@
-@import "catppuccin-frappe"
 configuration {
     modi: "run,drun,window";
     icon-theme: "Oranchelo";
@@ -24,3 +23,5 @@ configuration {
     kb-mode-previous: "Shift+Left,Control+Shift+Tab,Control+h";
     kb-remove-char-back: "BackSpace";
 }
+
+@theme "/usr/share/rofi/themes/purple.rasi"

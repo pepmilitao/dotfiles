@@ -1,3 +1,0 @@
-return {
-    "Procrat/oz.vim"
-}
