@@ -1,5 +1,9 @@
 #!/bin/bash
 
+arch_chroot() {
+    arch-chroot /mnt /bin/bash -c "$1"
+}
+
 echo "Welcome to my ArchInstaller, might not be the best but is good enough"
 
 # Partitions
@@ -39,16 +43,23 @@ mount --mkdir $boot /mnt/boot
 
 # Generating mirrorlists
 
-# echo "Generating the mirrorlist for Brazil (aí sim)"
-# echo "Server = https://geo.mirror.pkgbuild.com/$repo/os/$arch" > /etc/pacman.d/mirrorlist
-# echo "Server = https://ftpmirror.infania.net/mirror/archlinux/$repo/os/$arch" >> /etc/pacman.d/mirrorlist
-# echo "Server = https://mirror.rackspace.com/archlinux/$repo/os/$arch" >> /etc/pacman.d/mirrorlist
-# echo "Server = https://archlinux.c3sl.ufpr.br/$repo/os/$arch" >> /etc/pacman.d/mirrorlist
-# echo "Server = https://www.caco.ic.unicamp.br/archlinux/$repo/os/$arch" >> /etc/pacman.d/mirrorlist
-# echo "Server = https://br.mirrors.cicku.me/archlinux/$repo/os/$arch" >> /etc/pacman.d/mirrorlist
-# echo "Server = https://mirror.ufscar.br/archlinux/$repo/os/$arch" >> /etc/pacman.d/mirrorlist
-# echo "Server = https://mirrors.ic.unicamp.br/archlinux/$repo/os/$arch" >> /etc/pacman.d/mirrorlist
-# pacman -Syyu
+echo "Generating the mirrorlist for Brazil (aí sim)"
+cat <<EOF > /etc/pacman.d/mirrorlist
+Server = https://geo.mirror.pkgbuild.com/\$repo/os/\$arch
+Server = https://ftpmirror.infania.net/mirror/archlinux/\$repo/os/\$arch
+Server = https://mirror.rackspace.com/archlinux/\$repo/os/\$arch
+Server = https://archlinux.c3sl.ufpr.br/\$repo/os/\$arch
+Server = https://www.caco.ic.unicamp.br/archlinux/\$repo/os/\$arch
+Server = https://br.mirrors.cicku.me/archlinux/\$repo/os/\$arch
+Server = https://mirror.ufscar.br/archlinux/\$repo/os/\$arch
+Server = https://mirrors.ic.unicamp.br/archlinux/\$repo/os/\$arch
+Server = https://geo.mirror.pkgbuild.com/\$repo/os/\$arch
+Server = https://ftpmirror.infania.net/mirror/archlinux/\$repo/os/\$arch
+Server = http://mirror.rackspace.com/archlinux/\$repo/os/\$arch
+Server = https://mirror.rackspace.com/archlinux/\$repo/os/\$arch
+EOF
+
+pacman -Syyu
 
 # TODO: chose which kernel to install
 
@@ -59,29 +70,26 @@ pacstrap -K /mnt base linux-zen linux-firmware sof-firmware networkmanager vim b
 echo "Generating fstab"
 genfstab -U /mnt >> /mnt/etc/fstab
 
-arch-chroot /mnt
-
 echo "Setting the time for Fortaleza-CE (o pai é do nordeste :D)"
-ln -sf /usr/share/zoneinfo/America/Fortaleza /etc/localtime
-hwclock --systohc
+arch_chroot ln -sf /usr/share/zoneinfo/America/Fortaleza /etc/localtime
+arch_chroot hwclock --systohc
 
-echo "en_US.UTF-8 UTF-8" > /etc/locale.gen
-echo "pt_BR.UTF-8 UTF-8" >> /etc/locale.gen
-locale-gen
-echo "LANG=en_US.UTF-8" > /etc/locale.conf
-echo "KEYMAP=br-abnt2" > /etc/vconsole.conf
+arch_chroot echo "en_US.UTF-8 UTF-8" > /etc/locale.gen
+arch_chroot echo "pt_BR.UTF-8 UTF-8" >> /etc/locale.gen
+arch_chroot locale-gen
+arch_chroot echo "LANG=en_US.UTF-8" > /etc/locale.conf
+arch_chroot echo "KEYMAP=br-abnt2" > /etc/vconsole.conf
 
 echo "Define a root's password"
-passwd
+arch_chroot passwd
 
 echo "Define the computer's name: "
 read hostname
-echo $hostname > /etc/hostname
+arch_chroot echo $hostname > /etc/hostname
 
 echo "Grub config"
-grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
-grub-mkconfig -o /boot/grub/grub.cfg
-exit
+arch_chroot grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
+arch_chroot grub-mkconfig -o /boot/grub/grub.cfg
 
 umount -R /mnt
 
