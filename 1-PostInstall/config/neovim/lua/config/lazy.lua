@@ -32,3 +32,9 @@ require("lazy").setup({
 
 -- Number color setup --
 vim.cmd("highlight LineNr guifg=#e5c890")
+
+-- Transparency --
+vim.cmd("highlight Normal guibg=none")
+vim.cmd("highlight NonText guibg=none")
+vim.cmd("highlight Normal ctermbg=none")
+vim.cmd("highlight NonText ctermbg=none")
