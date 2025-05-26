@@ -105,3 +105,6 @@ source $ZSH/oh-my-zsh.sh
 #
 # Vim keybindings
 bindkey -v
+
+# cargo PATH setup
+PATH=/home/pep/.cargo/bin:$PATH
