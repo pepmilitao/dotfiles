@@ -108,3 +108,7 @@ bindkey -v
 
 # cargo PATH setup
 PATH=/home/pep/.cargo/bin:$PATH
+
+alias start-server=wol f8:a9:63:64:09:e7
+
+export TERM=xterm-256color
