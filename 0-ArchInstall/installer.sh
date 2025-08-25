@@ -64,7 +64,7 @@ pacman -Syyu
 # TODO: chose which kernel to install
 
 echo "Installing essencial packages"
-pacstrap -K /mnt base linux-zen linux-firmware sof-firmware networkmanager vim base-devel grub efibootmgr pulseaudio
+pacstrap -K /mnt base linux-zen linux-firmware sof-firmware networkmanager neovim base-devel grub efibootmgr pulseaudio
 
 # System configs
 echo "Generating fstab"
