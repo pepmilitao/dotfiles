@@ -112,3 +112,8 @@ PATH=/home/pep/.cargo/bin:$PATH
 alias start-server=wol f8:a9:63:64:09:e7
 
 export TERM=xterm-256color
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/pepito/.lmstudio/bin"
+# End of LM Studio CLI section
+
