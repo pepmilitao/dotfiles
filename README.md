@@ -1,13 +1,9 @@
-# Install and config scripts
+# Dotfiles for apps, WMs and DEs
 
-Made for personal use and really simple
+I used the `GNU stow` app to easily create the desired symlinks.
 
-There is two directories so far, `0-ArchInstall` and `1-PostInstall`
+For example, to use the **neovim** config just go to the `apps` directory and execute `stow nvim`. This applies for all the other dotfiles.
 
-In `0-ArchInstall` we have a script to use in Arch Linux installer
+The `scripts` directory is just there, don't worry about it.
 
-In `1-PostInstall` there is almost all the configs to make the system run as I like
-
-Is pretty much it...
-
-Good studies :)
+Sometimes I don't feel like using catppuccin for everything, thats why there is a chance that the apps color don't match with each other. I will *trie* to make the colorschemes that I could use available in the dotfiles.
