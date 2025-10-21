@@ -16,14 +16,117 @@
         "sort-by-number": true
     },
 
-    "sway/window": {
+    "mpris": {
+        // TODO
+        "format": "DEFAULT: {player_icon} {dynamic}",
+        "format-paused": "DEFAULT: {status_icon} <i>{dynamic}</i>",
+        "player-icons": {
+            "default": "▶",
+            "mpv": "🎵"
+        },
+        "status-icons": {
+            "paused": "⏸"
+        }
+    },
+
+    "clock": {
+        "interval": 1,
+        "format": "{:%T}",
+        "format-alt": "{:%T %d-%m-%Y}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "format": {
+                "months":     "<span color='#ffead3'><b>{}</b></span>",
+                "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+                "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+                "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+            }
+        }
+    },
+
+    "battery": {
+        "interval": 60,
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": " {icon}{capacity}% ",
+        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+        "max-length": 25
+    },
+
+    "bluetooth": {
+        "format": "  ",
+        "format-connected": "  {device_alias} ",
+        "format-connected-battery": "  {device_alias} {device_battery_percentage}% ",
+        "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+        "on-click": "blueman-manager"
+    },
+
+    "cpu": {
+        "format": "  {usage}% "
+    },
+
+    "disk": {
+        "interval": 30,
+        "format": " {specific_free:0.2f} / {specific_total:0.2f} GB ",
+        "unit": "GB"
+    // 0.25 GB out of 2000.00 GB available. Alternatively 241.3MiB out of 1.9TiB available.
+    },
+
+    "group": {
+
+    },
+
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": " 󰒳  ",
+            "deactivated": " 󰒲  "
+        }
+    },
+
+    "memory": {
+        "format": "  {percentage}%"
+    },
+
+    "network": {
+        "format-wifi": " {icon} {essid} ",
+        "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+        "format-ethernet": " {ipaddr}/{cidr}  ",
+        "format-disconnected": "", //An empty format will hide the module.
+        "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+        "tooltip-format-wifi": " {essid} {icon} ",
+        "tooltip-format-ethernet": "{ifname} ",
+        "tooltip-format-disconnected": "Disconnected",
         "max-length": 50
     },
-    "battery": {
-        "format": "{capacity}% {icon}  ",
-        "format-icons": ["", "", "", "", ""]
+
+    "power-profiles-daemon": {
+        "format": " {icon}  ",
+        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+        "tooltip": true,
+        "format-icons": {
+            "default": "",
+            "performance": "",
+            "balanced": "",
+            "power-saver": ""
+        }
     },
-    "clock": {
-        "format-alt": "{:%a, %d. %b  %H:%M}"
+
+    "privacy": {
+
+    },
+
+    "pulseaudio": {
+
+    },
+
+    "temperature": {
+
     }
 }

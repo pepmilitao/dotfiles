@@ -6,14 +6,25 @@
 
     "modules-left": [
         "custom/launcher",
-        "hyprland/workspaces"
+        "hyprland/workspaces",
+        "disk",
+        "mpris"
     ],
     "modules-center": [
-        "sway/window"
+        "clock"
     ],
     "modules-right": [
         "battery",
-        "clock"
+        "bluetooth",
+        "cpu",
+        "group",
+        "idle_inhibitor",
+        "memory",
+        "network",
+        "power-profiles-daemon",
+        "privacy",
+        "pulseaudio",
+        "temperature"
     ],
 
     "include": "./modules.jsonc"
