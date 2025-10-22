@@ -23,8 +23,7 @@
         "network",
         "power-profiles-daemon",
         "privacy",
-        "pulseaudio",
-        "temperature"
+        "pulseaudio"
     ],
 
     "include": "./modules.jsonc"
