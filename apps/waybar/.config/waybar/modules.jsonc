@@ -72,14 +72,19 @@
     },
 
     "disk": {
-        "path": "/home",
-        "format": " {specific_used:0.2f} / {specific_total:0.2f} GB ",
+        "format": " {specific_used:0.2f} GB / {specific_total:0.2f} GB ",
         "unit": "GB"
     // 0.25 GB out of 2000.00 GB available. Alternatively 241.3MiB out of 1.9TiB available.
     },
 
-    "group": {
-
+    "group/misc": {
+        "orientation": "horizontal",
+        "modules": [
+            "power-profiles-daemon",
+            "bluetooth",
+            "idle_inhibitor"
+        ],
+        "drawer": {}
     },
 
     "idle_inhibitor": {
@@ -91,18 +96,18 @@
     },
 
     "memory": {
-        "format": "  {percentage}%"
+        "format": "  {percentage}% "
     },
 
     "network": {
+        "interval": 2,
+        "on-click": "kitty -e nmtui",
         "format-wifi": " {icon} {essid} ",
         "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
-        "format-ethernet": " {ipaddr}/{cidr}  ",
-        "format-disconnected": "", //An empty format will hide the module.
-        "tooltip-format": "{ifname} via {gwaddr} 󰊗",
-        "tooltip-format-wifi": " {essid} {icon} ",
-        "tooltip-format-ethernet": "{ifname} ",
-        "tooltip-format-disconnected": "Disconnected",
+        "format-ethernet": "   ",
+        "format-disconnected": "   ",
+        "tooltip-format": " UP {bandwidthUpBits} DOWN {bandwidthDownBits} ",
+        "tooltip-format-disconnected": " Disconnected :( ",
         "max-length": 50
     },
 
@@ -118,11 +123,27 @@
         }
     },
 
-    "privacy": {
-
-    },
-
     "pulseaudio": {
-
+        "format": " {icon} {volume}% ",
+        "format-bluetooth": " {icon} {volume}%  ",
+        "format-muted": "   ",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "phone-muted": "",
+            "portable": "",
+            "car": "",
+            "default": ["", " ", " ", " "]
+        },
+        "scroll-step": 1,
+        "on-click": "pwvucontrol",
+        "ignored-sinks": ["Easy Effects Sink"]
+    },
+    "custom/power_settings": {
+        "format": "  ",
+        "tooltip": false,
+        "on-click": "nwg-bar"
     }
 }

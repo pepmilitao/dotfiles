@@ -2,7 +2,7 @@
     "style": "./style.css",
 
     "layer": "top",
-    "height": 40,
+    "height": 34,
 
     "modules-left": [
         "custom/launcher",
@@ -14,16 +14,13 @@
         "clock"
     ],
     "modules-right": [
-        "battery",
-        "bluetooth",
+        "group/misc",
+        "pulseaudio",
         "cpu",
-        "group",
-        "idle_inhibitor",
         "memory",
         "network",
-        "power-profiles-daemon",
-        "privacy",
-        "pulseaudio"
+        "battery",
+        "custom/power_settings"
     ],
 
     "include": "./modules.jsonc"

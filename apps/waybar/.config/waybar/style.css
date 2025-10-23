@@ -1,10 +1,49 @@
+@define-color background #323232;
+@define-color second-background #3A372F;
+@define-color text #DDD5C4;
+@define-color borders #A0907A;
+@define-color focused #d65d0e;
+@define-color focused2 #BFAA80;
+@define-color color1 #7699A3;
+@define-color color2 #8D7AAE;
+@define-color color3 #78997A;
+@define-color urgent #B05A5A;
+
 * {
-	border: none;
-	border-radius: 0;
-	font-family: 'VictorMono Nerd Font';
-	font-size: 14px;
-	font-weight: 600;
-	min-height: 0;
-	padding: 0;
-	margin: 0;
+    font-family: 'VictorMono Nerd Font';
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+window#waybar {
+    background-color: transparent;
+    border-bottom: 0;
+    color: @text;
+    transition: background-color 0.5s;
+}
+
+.modules-left {
+    margin: 5px 0 0 5px;
+    padding: 0 0 0 8px;
+    background-color: @background;
+    border: 2px solid @focused;
+}
+
+.modules-center {
+    margin: 5px 0 0 0;
+    padding: 0 10px 0 10px;
+    background-color: @background;
+    border: 2px solid @focused;
+}
+
+.modules-right {
+    margin: 5px 5px 0 0;
+    padding: 0 10px 0 10px;
+    background-color: @background;
+    border: 2px solid @focused;
+}
+
+button {
+    border: none
 }
