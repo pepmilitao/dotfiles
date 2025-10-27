@@ -17,15 +17,15 @@
     },
 
     "mpris": {
-        // TODO
-        "format": "DEFAULT: {player_icon} {dynamic}",
-        "format-paused": "DEFAULT: {status_icon} <i>{dynamic}</i>",
-        "player-icons": {
-            "default": "▶",
-            "mpv": "🎵"
-        },
+        "format": "  {status_icon} {title} | {artist} [{position}] ",
+        "interval": 2,
+        "format-len": 10,
+        "interval": 1,
+        "dynamic-len": 40,
         "status-icons": {
-            "paused": "⏸"
+            "playing": "⏸",
+            "paused": "▶",
+            "stopped": ""
         }
     },
 

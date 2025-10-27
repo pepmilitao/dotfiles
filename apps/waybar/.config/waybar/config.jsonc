@@ -8,13 +8,13 @@
         "custom/launcher",
         "hyprland/workspaces",
         "disk",
-        "mpris"
+        "group/misc"
     ],
     "modules-center": [
         "clock"
     ],
     "modules-right": [
-        "group/misc",
+        "mpris",
         "pulseaudio",
         "cpu",
         "memory",
