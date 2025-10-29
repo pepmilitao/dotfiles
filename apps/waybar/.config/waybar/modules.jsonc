@@ -7,6 +7,13 @@
 
     "hyprland/workspaces": {
         "format": "{icon}",
+        "persistent-workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": []
+        },
         "on-click": "activate",
         "format-icons": {
             "urgent": "",
@@ -18,6 +25,8 @@
 
     "mpris": {
         "format": "  {status_icon} {title} | {artist} [{position}] ",
+        "title-len": 30,
+        "artist-len": 25,
         "interval": 2,
         "format-len": 10,
         "interval": 1,
@@ -80,11 +89,24 @@
     "group/misc": {
         "orientation": "horizontal",
         "modules": [
+            "custom/updates",
             "power-profiles-daemon",
             "bluetooth",
             "idle_inhibitor"
         ],
         "drawer": {}
+    },
+
+    "custom/updates": {
+        "format": " {} {icon}  ",
+        "return-type": "json",
+        "on-click": "$HOME/.config/waybar/scripts/update.sh",
+        "format-icons": {
+            "has-updates": "󱍷",
+            "updated": "󰂪"
+        },
+        "exec-if": "which waybar-module-pacman-updates",
+        "exec": "waybar-module-pacman-updates --interval-seconds 5 --network-interval-seconds 300"
     },
 
     "idle_inhibitor": {

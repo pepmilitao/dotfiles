@@ -5,6 +5,7 @@ return {
     config = function()
         require("neorg").setup {
           load = {
+            ["core.export"] = {},
             ["core.defaults"] = {},
             ["core.concealer"] = {},
             ["core.dirman"] = {
@@ -19,5 +20,6 @@ return {
         }
         vim.wo.foldlevel = 99
         vim.wo.conceallevel = 2
+        vim.keymap.set("n", "<leader>ol", "<Plug>(neorg.esupports.hop.hop-link)", { silent = true })
     end
 }
