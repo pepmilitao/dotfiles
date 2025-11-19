@@ -7,13 +7,6 @@
 
     "hyprland/workspaces": {
         "format": "{icon}",
-        "persistent-workspaces": {
-            "1": [],
-            "2": [],
-            "3": [],
-            "4": [],
-            "5": []
-        },
         "on-click": "activate",
         "format-icons": {
             "urgent": "",
@@ -40,8 +33,7 @@
 
     "clock": {
         "interval": 1,
-        "format": "{:%T}",
-        "format-alt": "{:%T %d-%m-%Y}",
+        "format": "{:%T %d-%m-%Y}",
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "calendar": {
             "format": {
