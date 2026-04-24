@@ -1,12 +1,12 @@
 [
   {
     "label": "Lock",
-    "exec": "hyprlock",
+    "exec": "swaylock -f -c 000000",
     "icon": "/usr/share/nwg-bar/images/system-lock-screen.svg"
   },
   {
     "label": "Logout",
-    "exec": "hyprctl dispatch exit",
+    "exec": "i3-msg exit",
     "icon": "/usr/share/nwg-bar/images/system-log-out.svg"
   },
   {
