@@ -27,7 +27,6 @@ order += "ethernet enp0s25"
 order += "battery 0"
 order += "cpu_temperature 0"
 order += "cpu_usage 0"
-order += "load"
 order += "tztime local"
 
 wireless wlp4s0 {
@@ -64,11 +63,7 @@ run_watch VPN {
 }
 
 tztime local {
-    format = " %V %A %e.%B   %H:%M:%S"
-}
-
-load {
-    format = " %1min"
+    format = " %A %e.%B   %H:%M:%S"
 }
 
 cpu_usage {
